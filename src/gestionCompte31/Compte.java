@@ -1,6 +1,4 @@
-package gestionCompte20;
-
-import java.util.Vector;
+package gestionCompte31;
 
 /**
  * Manages the class Compte.
@@ -10,19 +8,29 @@ import java.util.Vector;
 public class Compte {
 
 	/**
-	 * The vector of the deposit.
+	 * The array of the deposit.
 	 */
-	private Vector<Integer> depots;
+	private int[] depots;
 	
 	/**
-	 * The vector of the withdrawal.
+	 * The array of the withdrawal.
 	 */
-	private Vector<Integer> retraits;
+	private int[] retraits;
 	
 	/**
 	 * The overdraft.
 	 */
 	private int decouvert;
+	
+	/**
+	 * The last index of the deposit array.
+	 */
+	private int iDepots;
+	
+	/**
+	 * The last index of the withdrawal array.
+	 */
+	private int iRetraits;
 	
 	/**
 	 * Initializes an instance of the class Compte.
@@ -32,8 +40,8 @@ public class Compte {
 	 */
 	public Compte() {
 		this.decouvert = 0;
-		this.depots = new Vector<Integer>();
-		this.retraits = new Vector<Integer>();
+		this.depots = new int[10];
+		this.retraits = new int[10];
 	}
 	
 	/**
@@ -54,7 +62,8 @@ public class Compte {
 	 * @param montant the montant
 	 */
 	public void depotDe(int montant) {
-		depots.add(montant);
+		depots[iDepots] = montant;
+		iDepots++;
 	}
 	
 	/**
@@ -65,7 +74,8 @@ public class Compte {
 	public boolean retraitDe(int montant) {
 		
 		if(verifDecouvert(montant)) {
-			retraits.add(montant);
+			retraits[iRetraits] = montant;
+			iRetraits++;
 			return true;
 		}
 		
@@ -81,9 +91,9 @@ public class Compte {
 		
 		int sum = 0;
 		
-		for (int i = 0; i < depots.size(); i++) {
+		for (int i = 0; i < depots.length; i++) {
 			
-			sum += depots.get(i);
+			sum += depots[i];
 		}
 		
 		return sum;
@@ -98,9 +108,9 @@ public class Compte {
 		
 		int sum = 0;
 				
-		for (int i = 0; i < retraits.size(); i++) {
+		for (int i = 0; i < retraits.length; i++) {
 					
-			sum += retraits.get(i);
+			sum += retraits[i];
 		}
 				
 		return sum;	
