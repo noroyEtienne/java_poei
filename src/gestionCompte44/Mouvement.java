@@ -1,4 +1,4 @@
-package package42;
+package gestionCompte44;
 
 import java.util.Date;
 
@@ -14,17 +14,12 @@ public class Mouvement {
 	/**
 	 * The amount of the mouvement
 	 */
-	private int montant;
+	private int montantMvt;
 	
 	/**
 	 * The date of the mouvement
 	 */
 	private Date dateMvt;
-	
-	/**
-	 * The type of the mouvement
-	 */
-	private TypeMvt typeMvt;
 	
 	/**
 	 * 
@@ -33,11 +28,28 @@ public class Mouvement {
 	 * @param montant the amount
 	 * @param typeMvt the type of mouvement
 	 */
-	public Mouvement(int montant, TypeMvt typeMvt) {
+	public Mouvement(int montant) {
 		
-		this.montant = montant;
-		this.typeMvt = typeMvt;
-		dateMvt = new Date();
+		this.montantMvt = montant;
+		this.dateMvt = new Date();
+	}
+	
+	/**
+	 * Gets the amount of the deposits.
+	 * 
+	 * @return the sum of the deposit
+	 */
+	public int getPlus() {
+		return 0;
+	}
+	
+	/**
+	 * Gets the amount of the withdrawals.
+	 * 
+	 * @return the sum of the withdrawal
+	 */
+	public int getMoins() {
+		return 0;
 	}
 
 	/**
@@ -46,7 +58,7 @@ public class Mouvement {
 	 * @return the montant
 	 */
 	public int getMontant() {
-		return montant;
+		return montantMvt;
 	}
 
 	/**
@@ -55,7 +67,7 @@ public class Mouvement {
 	 * @param montant the montant to set
 	 */
 	public void setMontant(int montant) {
-		this.montant = montant;
+		this.montantMvt = montant;
 	}
 
 	/**
@@ -74,24 +86,6 @@ public class Mouvement {
 	 */
 	public void setDateMvt(Date dateMvt) {
 		this.dateMvt = dateMvt;
-	}
-
-	/**
-	 * Gets the type of the mouvement.
-	 * 
-	 * @return the typeMvt
-	 */
-	public TypeMvt getTypeMvt() {
-		return typeMvt;
-	}
-
-	/**
-	 * Sets the type of the mouvement.
-	 * 
-	 * @param typeMvt the typeMvt to set
-	 */
-	public void setTypeMvt(TypeMvt typeMvt) {
-		this.typeMvt = typeMvt;
 	}
 }
 
