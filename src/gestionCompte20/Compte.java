@@ -40,6 +40,8 @@ public class Compte {
 	 */
 	public Compte() {
 		this.decouvert = 0;
+		this.depots = new int[10];
+		this.retraits = new int[10];
 	}
 	
 	/**
@@ -48,24 +50,9 @@ public class Compte {
 	 * @param solde the solde.
 	 * 
 	 */
-	public Compte(int solde) {
+	public Compte(int decouvert) {
 		this();
 		
-		if( solde < 0) {
-			System.out.println(retraitDe(solde)? "Solde initial accepté" : "Solde initial refusé");
-			
-		}
-		else {
-			depotDe(solde);
-		}
-	}
-	
-	/**
-	 * Initializes an instance of the class Compte.
-	 * 
-	 */
-	public Compte(int solde, int decouvert) {
-		this(solde);
 		this.decouvert = decouvert;
 	}
 	
@@ -75,7 +62,8 @@ public class Compte {
 	 * @param montant the montant
 	 */
 	public void depotDe(int montant) {
-		depots[iDepots] = montant;		
+		depots[iDepots] = montant;
+		iDepots++;
 	}
 	
 	/**
@@ -86,7 +74,8 @@ public class Compte {
 	public boolean retraitDe(int montant) {
 		
 		if(verifDecouvert(montant)) {
-			retraits[iRetraits] = montant;	
+			retraits[iRetraits] = montant;
+			iRetraits++;
 			return true;
 		}
 		
@@ -164,10 +153,10 @@ public class Compte {
 		
 		if (this.getSolde() - montant >= -this.decouvert) {
 			
-			return false;
+			return true;
 		}
 		
-		return true;
+		return false;
 	}
 	
 	
