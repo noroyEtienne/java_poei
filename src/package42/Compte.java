@@ -1,4 +1,4 @@
-package package41;
+package package42;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -13,14 +13,9 @@ import java.util.Vector;
 public class Compte {
 
 	/**
-	 * The list of the deposit.
+	 * The list of the mouvements.
 	 */
-	private List<Mouvement> depots;
-	
-	/**
-	 * The list of the withdrawal.
-	 */
-	private List<Mouvement> retraits;
+	private List<Mouvement> mouvements;
 	
 	/**
 	 * The overdraft.
@@ -35,8 +30,7 @@ public class Compte {
 	 */
 	public Compte() {
 		decouvert = 0;
-		depots = new ArrayList<Mouvement>();
-		retraits = new ArrayList<Mouvement>();
+		mouvements = new ArrayList<Mouvement>();
 	}
 	
 	/**
@@ -57,7 +51,7 @@ public class Compte {
 	 * @param montant the montant
 	 */
 	public void depotDe(int montant) {
-		depots.add(new Mouvement(montant, TypeMvt.DEPOT));
+		mouvements.add(new Mouvement(montant, TypeMvt.DEPOT));
 	}
 	
 	/**
@@ -68,7 +62,7 @@ public class Compte {
 	public boolean retraitDe(int montant) {
 		
 		if(verifDecouvert(montant)) {
-			retraits.add(new Mouvement(montant, TypeMvt.RETRAIT));
+			mouvements.add(new Mouvement(montant, TypeMvt.RETRAIT));
 			return true;
 		}
 		
@@ -84,11 +78,16 @@ public class Compte {
 		
 		int sum = 0;
 		
-		Iterator<Mouvement> itr = depots.iterator();
+		Iterator<Mouvement> itr = mouvements.iterator();
 		
 		while(itr.hasNext()) {
 			
-			sum += itr.next().getMontant();
+			Mouvement mvt = itr.next();
+			
+			if (mvt.getTypeMvt() == TypeMvt.DEPOT) {
+				sum += mvt.getMontant();
+			}
+			
 		}
 		
 		return sum;
@@ -104,11 +103,16 @@ public class Compte {
 		
 		int sum = 0;
 		
-		Iterator<Mouvement> itr = retraits.iterator();
+		Iterator<Mouvement> itr = mouvements.iterator();
 		
 		while(itr.hasNext()) {
 			
-			sum += itr.next().getMontant();
+			Mouvement mvt = itr.next();
+			
+			if (mvt.getTypeMvt() == TypeMvt.RETRAIT) {
+				sum += mvt.getMontant();
+			}
+			
 		}
 		
 		return sum;
