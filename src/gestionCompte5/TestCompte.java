@@ -114,8 +114,12 @@ public class TestCompte {
 			sb.append("Solde actuel : ")
 			.append(compte.getSolde());
 			System.out.println(sb.toString());
-			sb.setLength(0);		
+			sb.setLength(0);	
 		}
+		
+		//Test the getHistorique method.
+		displayTitle("Historique");
+		System.out.println(compte.getHistorique());
 	}
 
 }

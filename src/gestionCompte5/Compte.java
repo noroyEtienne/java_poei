@@ -160,4 +160,27 @@ public class Compte {
 				+ getSommeDepots() + ", getSommeRetraits()=" + getSommeRetraits() + ", getSolde()=" + getSolde()
 				+ ", getDecouvert()=" + getDecouvert() + "]";
 	}
+	
+	/**
+	 * Gets the historique as a string.
+	 * 
+	 * @return the historique of the movements
+	 */
+	public String getHistorique() {
+		
+		StringBuilder sb = new StringBuilder(100);
+		
+		for(Mouvement movement : historique) {
+			if (movement.getMontant() != 0) {
+				sb.append(movement.getDateMvt().toString())
+				.append(" : ")
+				.append(movement.getClass().getSimpleName())
+				.append(" - ")
+				.append(movement.getMontant())
+				.append("\n");
+			}
+		}
+		
+		return sb.toString();
+	}
 }
