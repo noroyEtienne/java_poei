@@ -22,7 +22,7 @@ public class TestCompte {
 	/**
 	 * The decouvert.
 	 */
-	private static final int DECOUVERT = -100;
+	private static final int DECOUVERT = 100;
 	
 	/**
 	 * The array of deposit.

@@ -28,11 +28,22 @@ public class Compte {
 	 * @param solde the solde.
 	 * 
 	 */
-	public Compte(int solde) {
+	public Compte() {
 		this.decouvert = 0;
+	}
+	
+	/**
+	 * Initializes an instance of the class Compte.
+	 * 
+	 * @param solde the solde.
+	 * 
+	 */
+	public Compte(int solde) {
+		this();
 		
 		if( solde < 0) {
-			sommeRetraits -= solde;
+			System.out.println(verifDecouvert(solde)? "Solde initial accepté" : "Solde initial refusé");
+			
 		}
 		else {
 			sommeDepots += solde;
@@ -125,7 +136,7 @@ public class Compte {
 	 */
 	private boolean verifDecouvert(int montant) {
 		
-		if ((this.getSolde() - montant) < this.decouvert) {
+		if ((this.getSolde() - montant) < - this.decouvert) {
 			
 			return false;
 		}
