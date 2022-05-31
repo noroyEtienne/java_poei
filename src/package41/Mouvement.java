@@ -24,7 +24,7 @@ public class Mouvement {
 	/**
 	 * The type of the mouvement
 	 */
-	private String typeMvt;
+	private TypeMvt typeMvt;
 	
 	/**
 	 * 
@@ -33,7 +33,7 @@ public class Mouvement {
 	 * @param montant the amount
 	 * @param typeMvt the type of mouvement
 	 */
-	public Mouvement(int montant, String typeMvt) {
+	public Mouvement(int montant, TypeMvt typeMvt) {
 		
 		this.setMontant(montant);
 		this.setTypeMvt(typeMvt);
@@ -81,7 +81,7 @@ public class Mouvement {
 	 * 
 	 * @return the typeMvt
 	 */
-	public String getTypeMvt() {
+	public TypeMvt getTypeMvt() {
 		return typeMvt;
 	}
 
@@ -90,7 +90,7 @@ public class Mouvement {
 	 * 
 	 * @param typeMvt the typeMvt to set
 	 */
-	public void setTypeMvt(String typeMvt) {
+	public void setTypeMvt(TypeMvt typeMvt) {
 		this.typeMvt = typeMvt;
 	}
 }

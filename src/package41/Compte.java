@@ -1,5 +1,6 @@
 package package41;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
@@ -14,22 +15,17 @@ public class Compte {
 	/**
 	 * The vector of the deposit.
 	 */
-	private Vector<Integer> depots;
+	private List<Mouvement> depots;
 	
 	/**
 	 * The vector of the withdrawal.
 	 */
-	private Vector<Integer> retraits;
+	private List<Mouvement> retraits;
 	
 	/**
 	 * The overdraft.
 	 */
 	private int decouvert;
-	
-	/**
-	 * The mouvements list;
-	 */
-	private List<Mouvement> mouvements;
 	
 	/**
 	 * Initializes an instance of the class Compte.
@@ -39,8 +35,8 @@ public class Compte {
 	 */
 	public Compte() {
 		decouvert = 0;
-		depots = new Vector<Integer>();
-		retraits = new Vector<Integer>();
+		depots = new ArrayList<Mouvement>();
+		retraits = new ArrayList<Mouvement>();
 	}
 	
 	/**
@@ -61,7 +57,7 @@ public class Compte {
 	 * @param montant the montant
 	 */
 	public void depotDe(int montant) {
-		depots.add(montant);
+		depots.add(new Mouvement(montant, TypeMvt.DEPOT));
 	}
 	
 	/**
@@ -72,7 +68,7 @@ public class Compte {
 	public boolean retraitDe(int montant) {
 		
 		if(verifDecouvert(montant)) {
-			retraits.add(montant);
+			retraits.add(new Mouvement(montant, TypeMvt.RETRAIT));
 			return true;
 		}
 		
@@ -88,11 +84,11 @@ public class Compte {
 		
 		int sum = 0;
 		
-		Iterator<Integer> itr = depots.iterator();
+		Iterator<Mouvement> itr = depots.iterator();
 		
 		while(itr.hasNext()) {
 			
-			sum += itr.next();
+			sum += itr.next().getMontant();
 		}
 		
 		return sum;
@@ -106,13 +102,13 @@ public class Compte {
 	 */
 	public int getSommeRetraits() {
 		
-int sum = 0;
+		int sum = 0;
 		
-		Iterator<Integer> itr = retraits.iterator();
+		Iterator<Mouvement> itr = retraits.iterator();
 		
 		while(itr.hasNext()) {
 			
-			sum += itr.next();
+			sum += itr.next().getMontant();
 		}
 		
 		return sum;
@@ -159,7 +155,5 @@ int sum = 0;
 		}
 		
 		return false;
-	}
-	
-	
+	}	
 }
