@@ -1,4 +1,4 @@
-package gestionCompte14;
+package gestionCompte20;
 
 /**
  * Manages the class Compte.
@@ -8,19 +8,29 @@ package gestionCompte14;
 public class Compte {
 
 	/**
-	 * The sum of the deposit.
+	 * The array of the deposit.
 	 */
-	private int sommeDepots;
+	private int[] depots;
 	
 	/**
-	 * The sum of the withdrawal.
+	 * The array of the withdrawal.
 	 */
-	private int sommeRetraits;
+	private int[] retraits;
 	
 	/**
 	 * The overdraft.
 	 */
 	private int decouvert;
+	
+	/**
+	 * The last index of the deposit array.
+	 */
+	private int iDepots;
+	
+	/**
+	 * The last index of the withdrawal array.
+	 */
+	private int iRetraits;
 	
 	/**
 	 * Initializes an instance of the class Compte.
@@ -38,9 +48,24 @@ public class Compte {
 	 * @param solde the solde.
 	 * 
 	 */
-	public Compte(int decouvert) {
+	public Compte(int solde) {
 		this();
 		
+		if( solde < 0) {
+			System.out.println(retraitDe(solde)? "Solde initial accepté" : "Solde initial refusé");
+			
+		}
+		else {
+			depotDe(solde);
+		}
+	}
+	
+	/**
+	 * Initializes an instance of the class Compte.
+	 * 
+	 */
+	public Compte(int solde, int decouvert) {
+		this(solde);
 		this.decouvert = decouvert;
 	}
 	
@@ -50,7 +75,7 @@ public class Compte {
 	 * @param montant the montant
 	 */
 	public void depotDe(int montant) {
-		sommeDepots += montant;		
+		depots[iDepots] = montant;		
 	}
 	
 	/**
@@ -61,7 +86,7 @@ public class Compte {
 	public boolean retraitDe(int montant) {
 		
 		if(verifDecouvert(montant)) {
-			sommeRetraits += montant;
+			retraits[iRetraits] = montant;	
 			return true;
 		}
 		
@@ -74,7 +99,15 @@ public class Compte {
 	 * @return the sommeDepots
 	 */
 	public int getSommeDepots() {
-		return sommeDepots;
+		
+		int sum = 0;
+		
+		for (int i = 0; i < depots.length; i++) {
+			
+			sum += depots[i];
+		}
+		
+		return sum;
 	}
 
 	/**
@@ -83,7 +116,15 @@ public class Compte {
 	 * @return the sommeRetraits
 	 */
 	public int getSommeRetraits() {
-		return sommeRetraits;
+		
+		int sum = 0;
+				
+		for (int i = 0; i < retraits.length; i++) {
+					
+			sum += retraits[i];
+		}
+				
+		return sum;	
 	}
 	
 	/**
@@ -92,7 +133,7 @@ public class Compte {
 	 * @return the solde
 	 */
 	public int getSolde() {
-		return sommeDepots - sommeRetraits;
+		return getSommeDepots() - getSommeRetraits();
 	}
 
 	/**
@@ -121,12 +162,12 @@ public class Compte {
 	 */
 	private boolean verifDecouvert(int montant) {
 		
-		if (this.getSolde() - montant >= -this.decouvert){
+		if ((this.getSolde() - montant) < - this.decouvert) {
 			
-			return true;
+			return false;
 		}
 		
-		return false;
+		return true;
 	}
 	
 	

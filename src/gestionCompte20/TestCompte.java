@@ -1,4 +1,4 @@
-package gestionCompte14;
+package gestionCompte20;
 
 /**
  * 
@@ -8,7 +8,17 @@ package gestionCompte14;
  *
  */
 public class TestCompte {
-		
+	
+	/**
+	 * The solde.
+	 */
+	private static final int SOLDE1 = -20;
+	
+	/**
+	 * The solde.
+	 */
+	private static final int SOLDE2 = 50;
+	
 	/**
 	 * The decouvert.
 	 */
@@ -31,9 +41,9 @@ public class TestCompte {
 	 */
 	public static void main(String[] args) {
 		
-		Compte compte1 = new Compte();
+		Compte compte1 = new Compte(SOLDE1);
 		
-		Compte compte2 = new Compte(DECOUVERT);
+		Compte compte2 = new Compte(SOLDE2, DECOUVERT);
 		
 		System.out.println("Découvert compte 1 :" + compte1.getDecouvert());
 		System.out.println("Découvert compte 2 :" + compte2.getDecouvert());
