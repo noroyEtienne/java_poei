@@ -162,7 +162,7 @@ public class Compte {
 	 */
 	private boolean verifDecouvert(int montant) {
 		
-		if ((this.getSolde() - montant) < - this.decouvert) {
+		if (this.getSolde() - montant >= -this.decouvert) {
 			
 			return false;
 		}
