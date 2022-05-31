@@ -1,4 +1,4 @@
-package gestionCompte51;
+package gestionCompte5;
 
 /**
  * Manages the retrait class.
@@ -18,6 +18,14 @@ public class Retrait extends Mouvement {
 	@Override
 	public int getMoins() {
 		return getMontant();
+	}
+
+	/**
+	 * Displays the definition of the instance as a string.
+	 */
+	@Override
+	public String toString() {
+		return "Retrait [getMoins()=" + getMoins() + "]";
 	}
 
 }

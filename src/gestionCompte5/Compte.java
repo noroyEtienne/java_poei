@@ -1,4 +1,4 @@
-package gestionCompte51;
+package gestionCompte5;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -149,5 +149,15 @@ public class Compte {
 		}
 		
 		return false;
-	}	
+	}
+	
+	/**
+	 * Displays the definition of the instance as a string.
+	 */
+	@Override
+	public String toString() {
+		return "Compte [historique=" + historique + ", decouvert=" + decouvert + ", getSommeDepots()="
+				+ getSommeDepots() + ", getSommeRetraits()=" + getSommeRetraits() + ", getSolde()=" + getSolde()
+				+ ", getDecouvert()=" + getDecouvert() + "]";
+	}
 }

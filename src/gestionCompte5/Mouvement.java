@@ -1,4 +1,4 @@
-package gestionCompte51;
+package gestionCompte5;
 
 import java.util.Date;
 
@@ -87,5 +87,16 @@ public class Mouvement {
 	public void setDateMvt(Date dateMvt) {
 		this.dateMvt = dateMvt;
 	}
+
+	/**
+	 * Displays the definition of the instance as a string.
+	 */
+	@Override
+	public String toString() {
+		return "Mouvement [montantMvt=" + montantMvt + ", dateMvt=" + dateMvt + ", getPlus()=" + getPlus()
+				+ ", getMoins()=" + getMoins() + ", getMontant()=" + getMontant() + ", getDateMvt()=" + getDateMvt()
+				+ "]";
+	}
+	
 }
 
