@@ -44,7 +44,7 @@ public class TestCompte {
 		for (int i = 0; i < DEPOT_ARRAY.length; i++) {
 			
 			// Test the deposit method.
-			DisplayTitle("Deposit");
+			displayTitle("Deposit");
 			sb.append("Depot de : ")
 			.append(DEPOT_ARRAY[i]);
 			compte.depotDe(DEPOT_ARRAY[i]);
@@ -53,7 +53,7 @@ public class TestCompte {
 			System.out.println("Solde actuel : " + compte.solde);
 			
 			// Test the withdrawal method.
-			DisplayTitle("Retrait");
+			displayTitle("Retrait");
 			sb.append("Retrait de : ")
 			.append(RETRAIT_ARRAY[i]);
 			compte.retraitDe(RETRAIT_ARRAY[i]);
@@ -62,7 +62,7 @@ public class TestCompte {
 			System.out.println("Solde actuel : " + compte.solde);
 			
 			// Test the getSolde method.
-			DisplayTitle("GetSolde");
+			displayTitle("GetSolde");
 			int getSolde = compte.getSolde();
 			System.out.println("Solde actuel : " + getSolde);
 			
@@ -75,7 +75,7 @@ public class TestCompte {
 	 * 
 	 * @param title the title to display.
 	 */
-	public static void DisplayTitle(String title) {
+	public static void displayTitle(String title) {
 		System.out.println("**********" + title + "**********");
 	}
 
