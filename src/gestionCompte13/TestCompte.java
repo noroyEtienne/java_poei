@@ -42,10 +42,12 @@ public class TestCompte {
 			// Test the getSommeDepots method.
 			sb.append("Somme des dépots : ")
 			.append(compte.getSommeDepots());
+			System.out.println(sb.toString());
 			sb.setLength(0);
 			// Test the getSolde method.
 			sb.append("Solde actuel : ")
 			.append(compte.getSolde());
+			System.out.println(sb.toString());
 			sb.setLength(0);
 			
 			// Test the withdrawal method.
@@ -54,14 +56,17 @@ public class TestCompte {
 			.append(RETRAIT_ARRAY[i]);
 			compte.retraitDe(RETRAIT_ARRAY[i]);
 			System.out.println(sb.toString());
+			System.out.println(sb.toString());
 			sb.setLength(0);
 			// Test the getSommeRetraits method.
 			sb.append("Somme des retraits : ")
 			.append(compte.getSommeRetraits());
+			System.out.println(sb.toString());
 			sb.setLength(0);
 			// Test the getSolde method.
 			sb.append("Solde actuel : ")
 			.append(compte.getSolde());
+			System.out.println(sb.toString());
 			sb.setLength(0);		
 		}
 
