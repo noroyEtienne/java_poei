@@ -1,4 +1,4 @@
-package package43;
+package package44;
 
 /**
  * Manages the retrait class.
@@ -11,4 +11,14 @@ public class Depot extends Mouvement {
 	public Depot(int montant) {
 		super(montant);
 	}
+	
+	/**
+	 * Gets the amount of the deposit.
+	 */
+	@Override
+	public int getPlus() {
+		return getMontant();
+	}
+	
+
 }

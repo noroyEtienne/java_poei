@@ -1,4 +1,4 @@
-package package43;
+package package44;
 
 import java.util.Date;
 
@@ -34,6 +34,24 @@ public class Mouvement {
 		this.dateMvt = new Date();
 	}
 	
+	/**
+	 * Gets the amount of the deposits.
+	 * 
+	 * @return the sum of the deposit
+	 */
+	public int getPlus() {
+		return 0;
+	}
+	
+	/**
+	 * Gets the amount of the withdrawals.
+	 * 
+	 * @return the sum of the withdrawal
+	 */
+	public int getMoins() {
+		return 0;
+	}
+
 	/**
 	 * Gets the montant.
 	 * 
