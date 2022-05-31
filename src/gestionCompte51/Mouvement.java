@@ -1,4 +1,4 @@
-package gestionCompte44;
+package gestionCompte51;
 
 import java.util.Date;
 
@@ -9,7 +9,7 @@ import java.util.Date;
  * @author Etienne NOROY
  *
  */
-public abstract class Mouvement {
+public class Mouvement {
 
 	/**
 	 * The amount of the mouvement
