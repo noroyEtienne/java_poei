@@ -23,15 +23,6 @@ public class Compte {
 	private int decouvert;
 	
 	/**
-	 * Sets the overdraft.
-	 * 
-	 * @param decouvert the decouvert to set
-	 */
-	public void setDecouvert(int decouvert) {
-		this.decouvert = decouvert;
-	}
-
-	/**
 	 * Initializes an instance of the class Compte.
 	 * 
 	 * @param solde the solde.
@@ -115,6 +106,15 @@ public class Compte {
 	 */
 	public int getDecouvert() {
 		return decouvert;
+	}
+	
+	/**
+	 * Sets the overdraft.
+	 * 
+	 * @param decouvert the decouvert to set
+	 */
+	public void setDecouvert(int decouvert) {
+		this.decouvert = decouvert;
 	}
 	
 	/**
