@@ -15,7 +15,7 @@ public class TestCompte {
 	private static final int[] DEPOT_ARRAY = {10, 20, 30, 0};
 	
 	/**
-	 * The array of deposit.
+	 * The array of withdrawal.
 	 */
 	private static final int[] RETRAIT_ARRAY = {10, 0, 50, 20};
 
