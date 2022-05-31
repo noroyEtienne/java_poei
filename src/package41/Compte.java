@@ -1,4 +1,8 @@
-package gestionCompte20;
+package package41;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.Vector;
 
 /**
  * Manages the class Compte.
@@ -8,14 +12,14 @@ package gestionCompte20;
 public class Compte {
 
 	/**
-	 * The array of the deposit.
+	 * The vector of the deposit.
 	 */
-	private int[] depots;
+	private Vector<Integer> depots;
 	
 	/**
-	 * The array of the withdrawal.
+	 * The vector of the withdrawal.
 	 */
-	private int[] retraits;
+	private Vector<Integer> retraits;
 	
 	/**
 	 * The overdraft.
@@ -23,14 +27,9 @@ public class Compte {
 	private int decouvert;
 	
 	/**
-	 * The last index of the deposit array.
+	 * The mouvements list;
 	 */
-	private int iDepots;
-	
-	/**
-	 * The last index of the withdrawal array.
-	 */
-	private int iRetraits;
+	private List<Mouvement> mouvements;
 	
 	/**
 	 * Initializes an instance of the class Compte.
@@ -39,9 +38,9 @@ public class Compte {
 	 * 
 	 */
 	public Compte() {
-		this.decouvert = 0;
-		this.depots = new int[10];
-		this.retraits = new int[10];
+		decouvert = 0;
+		depots = new Vector<Integer>();
+		retraits = new Vector<Integer>();
 	}
 	
 	/**
@@ -62,8 +61,7 @@ public class Compte {
 	 * @param montant the montant
 	 */
 	public void depotDe(int montant) {
-		depots[iDepots] = montant;
-		iDepots++;
+		depots.add(montant);
 	}
 	
 	/**
@@ -74,8 +72,7 @@ public class Compte {
 	public boolean retraitDe(int montant) {
 		
 		if(verifDecouvert(montant)) {
-			retraits[iRetraits] = montant;
-			iRetraits++;
+			retraits.add(montant);
 			return true;
 		}
 		
@@ -91,12 +88,15 @@ public class Compte {
 		
 		int sum = 0;
 		
-		for (int i = 0; i < iDepots; i++) {
+		Iterator<Integer> itr = depots.iterator();
+		
+		while(itr.hasNext()) {
 			
-			sum += depots[i];
+			sum += itr.next();
 		}
 		
 		return sum;
+		
 	}
 
 	/**
@@ -106,14 +106,16 @@ public class Compte {
 	 */
 	public int getSommeRetraits() {
 		
-		int sum = 0;
-				
-		for (int i = 0; i < iRetraits; i++) {
-					
-			sum += retraits[i];
+int sum = 0;
+		
+		Iterator<Integer> itr = retraits.iterator();
+		
+		while(itr.hasNext()) {
+			
+			sum += itr.next();
 		}
-				
-		return sum;	
+		
+		return sum;
 	}
 	
 	/**
