@@ -15,7 +15,7 @@ public class Compte {
 	/**
 	 * Initializes an instance of the class Compte.
 	 * 
-	 * @param solde the sodle.
+	 * @param solde the solde.
 	 */
 	public Compte(int solde) {
 		this.solde = solde;

@@ -7,7 +7,12 @@ package gestionCompte13;
  * @author Etienne NOROY
  *
  */
-public class TestCompte {	
+public class TestCompte {
+	
+	/**
+	 * The solde at the initiatiation.
+	 */
+	private static final int SOLDE_INIT = 0;
 	
 	/**
 	 * The array of deposit.
@@ -26,7 +31,7 @@ public class TestCompte {
 	 */
 	public static void main(String[] args) {
 		
-		Compte compte = new Compte();
+		Compte compte = new Compte(SOLDE_INIT);
 		
 		StringBuilder sb = new StringBuilder();
 

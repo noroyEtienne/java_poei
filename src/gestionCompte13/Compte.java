@@ -20,8 +20,17 @@ public class Compte {
 	/**
 	 * Initializes an instance of the class Compte.
 	 * 
+	 * @param solde the solde.
+	 * 
 	 */
-	public Compte() {
+	public Compte(int solde) {
+		
+		if( solde < 0) {
+			sommeRetraits += solde;
+		}
+		else {
+			sommeDepots += solde;
+		}
 	}
 	
 	/**

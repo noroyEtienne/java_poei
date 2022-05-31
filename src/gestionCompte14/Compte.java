@@ -34,17 +34,26 @@ public class Compte {
 	/**
 	 * Initializes an instance of the class Compte.
 	 * 
+	 * @param solde the solde.
+	 * 
 	 */
-	public Compte() {
+	public Compte(int solde) {
 		this.decouvert = 0;
+		
+		if( solde < 0) {
+			sommeRetraits -= solde;
+		}
+		else {
+			sommeDepots += solde;
+		}
 	}
 	
 	/**
 	 * Initializes an instance of the class Compte.
 	 * 
 	 */
-	public Compte(int decouvert) {
-		super();
+	public Compte(int solde, int decouvert) {
+		this(solde);
 		this.decouvert = decouvert;
 	}
 	

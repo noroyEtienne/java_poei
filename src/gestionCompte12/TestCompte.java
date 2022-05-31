@@ -59,13 +59,7 @@ public class TestCompte {
 			compte.retraitDe(RETRAIT_ARRAY[i]);
 			System.out.println(sb.toString());
 			sb.setLength(0);
-			System.out.println("Solde actuel : " + compte.getSolde());
-			
-			// Test the getSolde method.
-			displayTitle("GetSolde");
-			int getSolde = compte.getSolde();
-			System.out.println("Solde actuel : " + getSolde);
-			
+			System.out.println("Solde actuel : " + compte.getSolde());			
 		}
 
 	}
