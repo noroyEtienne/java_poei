@@ -71,32 +71,20 @@ public class TestCompte {
 		displayTitle(compteName);
 		System.out.println(System.lineSeparator());
 		
-		sb.append("Solde actuel : ")
-		.append(compte.getSolde());
-		System.out.println(sb.toString());
-		sb.setLength(0);
+		displayTestResult(sb, "Solde actuel : ", compte.getSolde());
 		
 		for (int i = 0; i < DEPOT_ARRAY.length; i++) {
 			
 			// Test the deposit method.
 			displayTitle("Deposit");
-			sb.append("Depot de : ")
-			.append(DEPOT_ARRAY[i]);
+			displayTestResult(sb, "Depot de : ", DEPOT_ARRAY[i]);
 			compte.depotDe(DEPOT_ARRAY[i]);
-			System.out.println(sb.toString());
-			sb.setLength(0);
 			
 			// Test the getSommeDepots method.
-			sb.append("Somme des dépots : ")
-			.append(compte.getSommeDepots());
-			System.out.println(sb.toString());
-			sb.setLength(0);
+			displayTestResult(sb, "Somme des dépots : ", compte.getSommeDepots());
 			
 			// Test the getSolde method.
-			sb.append("Solde actuel : ")
-			.append(compte.getSolde());
-			System.out.println(sb.toString());
-			sb.setLength(0);
+			displayTestResult(sb, "Solde actuel : ", compte.getSolde());	
 			
 			// Test the withdrawal method.
 			displayTitle("Retrait");
@@ -110,29 +98,33 @@ public class TestCompte {
 			sb.setLength(0);
 			
 			// Test the getSommeRetraits method.
-			sb.append("Somme des retraits : ")
-			.append(compte.getSommeRetraits());
-			System.out.println(sb.toString());
-			sb.setLength(0);
+			displayTestResult(sb, "Somme des retraits : ", compte.getSommeRetraits());
 			
 			// Test the getSolde method.
-			sb.append("Solde actuel : ")
-			.append(compte.getSolde());
-			System.out.println(sb.toString());
-			sb.setLength(0);	
+			displayTestResult(sb, "Solde actuel : ", compte.getSolde());	
 		}
 		
 		// Test the agioPayement method.
-		sb.append("Payement agio : ")
-		.append(AGIO_PRICE);
+		displayTestResult(sb, "Payement agio : ", AGIO_PRICE);
 		compte.agioPaiement(AGIO_PRICE);
-		System.out.println(sb.toString());
-		sb.setLength(0);
 		
 		//Test the getHistorique method.
 		displayTitle("Historique");
 		System.out.println(compte.getHistorique());
 		System.out.println("Solde : " + compte.getSolde());
+	}
+	
+	/**
+	 * 
+	 * @param sb the string builder
+	 * @param message the message
+	 * @param result the result to display
+	 */
+	private static void displayTestResult(StringBuilder sb, String message, int result) {
+		sb.append(message)
+		.append(result);
+		System.out.println(sb.toString());
+		sb.setLength(0);
 	}
 
 }
