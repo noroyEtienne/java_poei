@@ -1,5 +1,6 @@
 package gestionCompte32;
 
+import java.util.Iterator;
 import java.util.Vector;
 
 /**
@@ -81,12 +82,15 @@ public class Compte {
 		
 		int sum = 0;
 		
-		for (int i = 0; i < depots.size(); i++) {
+		Iterator<Integer> itr = depots.iterator();
+		
+		while(itr.hasNext()) {
 			
-			sum += depots.get(i);
+			sum += itr.next();
 		}
 		
 		return sum;
+		
 	}
 
 	/**
@@ -96,14 +100,16 @@ public class Compte {
 	 */
 	public int getSommeRetraits() {
 		
-		int sum = 0;
-				
-		for (int i = 0; i < retraits.size(); i++) {
-					
-			sum += retraits.get(i);
+int sum = 0;
+		
+		Iterator<Integer> itr = retraits.iterator();
+		
+		while(itr.hasNext()) {
+			
+			sum += itr.next();
 		}
-				
-		return sum;	
+		
+		return sum;
 	}
 	
 	/**
