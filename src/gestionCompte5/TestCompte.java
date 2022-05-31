@@ -15,6 +15,11 @@ public class TestCompte {
 	private static final int DECOUVERT = 100;
 	
 	/**
+	 * The decouvert.
+	 */
+	private static final int AGIO_PRICE = 5;
+	
+	/**
 	 * The array of deposit.
 	 */
 	private static final int[] DEPOT_ARRAY = {10, 20, 30, 0, 10};
@@ -117,9 +122,17 @@ public class TestCompte {
 			sb.setLength(0);	
 		}
 		
+		// Test the agioPayement method.
+		sb.append("Payement agio : ")
+		.append(AGIO_PRICE);
+		compte.agioPaiement(AGIO_PRICE);
+		System.out.println(sb.toString());
+		sb.setLength(0);
+		
 		//Test the getHistorique method.
 		displayTitle("Historique");
 		System.out.println(compte.getHistorique());
+		System.out.println("Solde : " + compte.getSolde());
 	}
 
 }

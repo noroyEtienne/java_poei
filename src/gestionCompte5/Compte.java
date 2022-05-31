@@ -46,6 +46,15 @@ public class Compte {
 	}
 	
 	/**
+	 * Payements of the agio.
+	 * 
+	 * @param montant the montant
+	 */
+	public void agioPaiement(int montant) {
+		historique.add(new Agio(montant));
+	}
+	
+	/**
 	 * Adds the montant to the solde.
 	 * 
 	 * @param montant the montant
