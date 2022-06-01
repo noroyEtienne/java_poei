@@ -31,7 +31,7 @@ public class Mouvement {
 	public Mouvement(int montant) {
 		
 		this.montantMvt = montant;
-		this.dateMvt = new Date();
+		dateMvt = new Date();
 	}
 	
 	/**

@@ -1,5 +1,6 @@
 package gestionCompte5;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -177,11 +178,12 @@ public class Compte {
 	 */
 	public String getHistorique() {
 		
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/Y H:m");
 		StringBuilder sb = new StringBuilder(100);
 		
 		for(Mouvement movement : historique) {
 			if (movement.getMontant() != 0) {
-				sb.append(movement.getDateMvt().toString())
+				sb.append(sdf.format(movement.getDateMvt()))
 				.append(" : ")
 				.append(movement.getClass().getSimpleName())
 				.append(" - ")
